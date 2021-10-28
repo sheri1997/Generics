@@ -22,7 +22,7 @@ namespace Generics
         }
         static void Main(string[] args)
         {
-            Console.WriteLine("Maximum Number = " + maximumNumber(10, 20, 4));//Maximum Number is at the Second Position.
+            Console.WriteLine("Maximum Number = " + maximumNumber(10, 20, 30));//Maximum Number is at the Third Position.
         }
     }
 }
