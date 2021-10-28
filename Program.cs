@@ -22,7 +22,7 @@ namespace Generics
         }
         static void Main(string[] args)
         {
-            Console.WriteLine("Maximum Number = " + maximumNumber("A","C" ,"B"));//Maximum String ASCII is at the Second Position.
+            Console.WriteLine("Maximum Number = " + maximumNumber("A","B" ,"C"));//Maximum String ASCII is at the Third Position.
         }
     }
 }
