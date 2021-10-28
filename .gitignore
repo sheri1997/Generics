@@ -1,0 +1,6 @@
+.git/
+.vs/
+bin/
+Generics/
+Generics.csproj/
+Generics.sln/
