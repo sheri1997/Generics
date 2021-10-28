@@ -4,7 +4,7 @@ namespace Generics
 {
     class Program
     {
-        public static int maximumNumber(int Number1, int Number2, int Number3)//integer method which will return an integer value
+        public static double maximumNumber(double Number1, double Number2, double Number3)//float method which will return a float value
         {
             if (Number1.CompareTo(Number2) > 0 && Number1.CompareTo(Number3) > 0 || Number1.CompareTo(Number2) >= 0 && Number1.CompareTo(Number3) > 0 || Number1.CompareTo(Number2) > 0 && Number1.CompareTo(Number3) >= 0)//if the value of the comparision between the instances created of Number 1 and Number 2 and Number 1 and Number 3 will be greater to or equal to 0.
             {
@@ -22,7 +22,7 @@ namespace Generics
         }
         static void Main(string[] args)
         {
-            Console.WriteLine("Maximum Number = " + maximumNumber(10, 20, 30));//Maximum Number is at the Third Position.
+            Console.WriteLine("Maximum Number = " + maximumNumber(10.2,5.8 ,4.7));//Maximum Number is at the First Position.
         }
     }
 }
