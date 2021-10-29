@@ -4,37 +4,38 @@ namespace Generics
 {
     public class Program<T>where T: IComparable//Generic Class, IComparable is used as a generalized type-specific comparison method that a value type or class implements to order or sort its instances.
     {
-        public T Value1, Value2, Value3;//Global Variables
-        public Program(T Value1, T Value2, T Value3)//Constructor used as reference for the global variables.
+        public T[] Values;//array defined which can hold more than three parameters
+        public Program(T[] Values)//constructor for variable reference.
         {
-            this.Value1 = Value1;
-            this.Value2 = Value2;
-            this.Value3 = Value3;
+            this.Values = Values;
         }
-        public static T maximumNumber(T Value1, T Value2, T Value3)//Generic Mathod T
+        public T[] Sorting(T[] Values)
         {
-            if (Value1.CompareTo(Value2) > 0 && Value1.CompareTo(Value3) > 0 || Value1.CompareTo(Value2) >= 0 && Value1.CompareTo(Value3) > 0 || Value1.CompareTo(Value2) > 0 && Value1.CompareTo(Value3) >= 0)//if the value of the comparision between the instances created of Value 1 and Value 2 and Value 1 and Value 3 will be greater to or equal to 0.
-            {
-                return Value1;
-            }
-            if (Value2.CompareTo(Value1) > 0 && Value2.CompareTo(Value3) > 0 || Value2.CompareTo(Value1) >= 0 && Value2.CompareTo(Value3) > 0 || Value2.CompareTo(Value1) > 0 && Value2.CompareTo(Value3) >= 0)//if the value of the comparision between the instances created of Value 2 and Value 1 and Value 2 and Value 3 will be greater to or equal to 0.
-            {
-                return Value2;
-            }
-            if (Value3.CompareTo(Value1) > 0 && Value3.CompareTo(Value2) > 0 || Value3.CompareTo(Value1) >= 0 && Value3.CompareTo(Value2) > 0 || Value3.CompareTo(Value1) > 0 && Value3.CompareTo(Value2) >= 0)//if the value of the comparision between the instances created of Value 3 and Value 1 and Value 3 and Value 2 will be greater to or equal to 0.
-            {
-                return Value3;
-            }
-            return default;//will return a default value because it is generic and it can return any data type.
+            Array.Sort(Values);//using the predefined Sort method of the Predefind Array Class.
+            return Values;
+            
+        }
+        public T MaxValue(T[] Values)
+        {
+            var sort = Sorting(Values);//will be holding the sorted values of the Sorting Function.
+            return sort[^1];//ranged operator used to give here the last value of the array since the array is sorted.
+        }
+        public T MaxMethod()
+        {
+            var maximum = MaxValue(this.Values);//reference to the global array which is now sorted.
+            return maximum;
         }
         public static void Main(string[] args)
         {
-            Program<int> intMax = new Program<int>(10, 8, 5);//object creation for integer data type.
-            Program<double> doubleMax = new Program<double>(3.74, 5.94, 4.87);//object creation for the double data type.
-            Program<string> stringMax = new Program<string>("A", "B", "C");//object creation for the string data type.
-            Console.WriteLine("Maximum Integer Value = " + intMax);
-            Console.WriteLine("Maximum Double Value = " + doubleMax);
-            Console.WriteLine("Maximum String Value = " + stringMax);
+            int[] intArray = { 10, 8, 5, 7, 2, 9 };
+            double[] doubleArray = { 20.4, 8.12, 6.14, 7.58, 4.95, 5.46 };
+            string[] stringArray = {"A","B","C","D","E","F"};
+            Program<int> intProgram = new Program<int>(intArray);
+            Program<double> doubleProgram = new Program<double>(doubleArray);
+            Program<string> stringProgram = new Program<string>(stringArray);
+            Console.WriteLine("Maximum Integer Number = " + intProgram.MaxMethod());
+            Console.WriteLine("Maximum Double Number = " + doubleProgram.MaxMethod());
+            Console.WriteLine("Maximum String Value = " + stringProgram.MaxMethod());
         }
     }
 }
