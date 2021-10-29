@@ -25,6 +25,11 @@ namespace Generics
             var maximum = MaxValue(this.Values);//reference to the global array which is now sorted.
             return maximum;
         }
+        public void printMaximumValue()
+        {
+            var maximum = MaxValue(this.Values);
+            Console.WriteLine("Maximum Integer Value = " + maximum);
+        }
         public static void Main(string[] args)
         {
             int[] intArray = { 10, 8, 5, 7, 2, 9 };
